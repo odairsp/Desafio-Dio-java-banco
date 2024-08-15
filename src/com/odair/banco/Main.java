@@ -4,15 +4,21 @@ package com.odair.banco;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        Banco banco = new Banco("Super Banco");
+        Cliente odair = new Cliente("Odair","45678913");
+        Conta cc = new ContaCorrente(odair);
+        Conta cp = new ContaPoupanca(odair);
 
-        Conta cc = new ContaCorrente();
-        Conta poupanca = new ContaPoupanca();
+        banco.adicionarConta(cc);
+        banco.adicionarConta(cp);
+        banco.imprimirListaClientes();
 
-        cc.depositar(100);
-        cc.transferir(100, poupanca);
-
+        cc.depositar(1000000);
         cc.imprimirExtrato();
-        poupanca.imprimirExtrato();
+        cc.transferir(500000, cp);
+        cc.imprimirExtrato();
+
+        cp.imprimirExtrato();
 
     }
 }

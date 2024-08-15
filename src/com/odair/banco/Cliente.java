@@ -1,15 +1,17 @@
 package com.odair.banco;
 
+import lombok.*;
+
+@Getter
+@Setter
+@ToString(includeFieldNames = false)
+@AllArgsConstructor
 public class Cliente {
 
-    private String nome;
+    @NonNull private String nome;
+    @Setter(value = AccessLevel.NONE)
+    @ToString.Exclude @NonNull private String cpf;
 
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
 }
